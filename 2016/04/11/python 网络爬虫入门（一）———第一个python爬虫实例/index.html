@@ -6,15 +6,26 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>frank</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
+  <meta name="description" content="最近两天学习了一下python，并自己写了一个网络爬虫的例子。python版本: 3.5IDE : pycharm 5.0.4要用到的包可以用pycharm下载：File-&amp;gt;Default Settings-&amp;gt;Default Project-&amp;gt;Project Interpreter选择python版本并点右边的加号安装想要的包
+我选择的网站是中国天气网中的苏州天气，准备抓取最近7">
+<meta property="og:type" content="article">
 <meta property="og:title" content="frank">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://yoursite.com/2016/04/11/python 网络爬虫入门（一）———第一个python爬虫实例/index.html">
 <meta property="og:site_name" content="frank">
-<meta property="og:description">
+<meta property="og:description" content="最近两天学习了一下python，并自己写了一个网络爬虫的例子。python版本: 3.5IDE : pycharm 5.0.4要用到的包可以用pycharm下载：File-&amp;gt;Default Settings-&amp;gt;Default Project-&amp;gt;Project Interpreter选择python版本并点右边的加号安装想要的包
+我选择的网站是中国天气网中的苏州天气，准备抓取最近7">
+<meta property="og:image" content="http://img.blog.csdn.net/20160312220413768">
+<meta property="og:image" content="http://img.blog.csdn.net/20160312221027556">
+<meta property="og:image" content="http://img.blog.csdn.net/20160312222919874">
+<meta property="og:image" content="http://img.blog.csdn.net/20160312223411899">
+<meta property="og:image" content="http://img.blog.csdn.net/20160312225448399">
+<meta property="og:image" content="http://img.blog.csdn.net/20160313155152028">
+<meta property="og:updated_time" content="2016-04-11T15:38:46.135Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="frank">
-<meta name="twitter:description">
+<meta name="twitter:description" content="最近两天学习了一下python，并自己写了一个网络爬虫的例子。python版本: 3.5IDE : pycharm 5.0.4要用到的包可以用pycharm下载：File-&amp;gt;Default Settings-&amp;gt;Default Project-&amp;gt;Project Interpreter选择python版本并点右边的加号安装想要的包
+我选择的网站是中国天气网中的苏州天气，准备抓取最近7">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20160312220413768">
   
     <link rel="alternative" href="/atom.xml" title="frank" type="application/atom+xml">
   
@@ -204,90 +215,7 @@
 	</div>
 </nav>
 
-      <div class="body-wrap">
-  
-    <article id="post-test" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/11/test/" class="article-date">
-  	<time datetime="2016-04-11T15:40:09.000Z" itemprop="datePublished">2016-04-11</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/11/test/">test</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近两天学习了一下python，并自己写了一个网络爬虫的例子。<br>python版本: 3.5<br>IDE : pycharm 5.0.4<br>要用到的包可以用pycharm下载：<br>File-&gt;Default Settings-&gt;Default Project-&gt;Project Interpreter<br>选择python版本并点右边的加号安装想要的包<br><img src="http://img.blog.csdn.net/20160312220413768" alt="这里写图片描述"></p>
-<p>我选择的网站是中国天气网中的苏州天气，准备抓取最近7天的天气以及最高/最低气温<br><a><a href="http://www.weather.com.cn/weather/101190401.shtml" target="_blank" rel="external">http://www.weather.com.cn/weather/101190401.shtml</a></a><br><img src="http://img.blog.csdn.net/20160312221027556" alt="这里写图片描述"></p>
-<p>程序开头我们添加：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># coding : UTF-8</span></span><br></pre></td></tr></table></figure>
-<p>这样就能告诉解释器该py程序是utf-8编码的，源程序中可以有中文。</p>
-<p>要引用的包：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> csv</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"><span class="keyword">import</span> http.client</span><br><span class="line"><span class="comment"># import urllib.request</span></span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br></pre></td></tr></table></figure>
-<p>requests：用来抓取网页的html源代码<br>csv：将数据写入到csv文件中<br>random：取随机数<br>time：时间相关操作<br>socket和http.client 在这里只用于异常处理<br>BeautifulSoup：用来代替正则式取源码中相应标签中的内容<br>urllib.request：另一种抓取网页的html源代码的方法，但是没requests方便（我一开始用的是这一种）</p>
-<p><strong>获取网页中的html代码：</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_content</span><span class="params">(url , data = None)</span>:</span></span><br><span class="line">    header=&#123;</span><br><span class="line">        <span class="string">'Accept'</span>: <span class="string">'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'</span>,</span><br><span class="line">        <span class="string">'Accept-Encoding'</span>: <span class="string">'gzip, deflate, sdch'</span>,</span><br><span class="line">        <span class="string">'Accept-Language'</span>: <span class="string">'zh-CN,zh;q=0.8'</span>,</span><br><span class="line">        <span class="string">'Connection'</span>: <span class="string">'keep-alive'</span>,</span><br><span class="line">        <span class="string">'User-Agent'</span>: <span class="string">'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.235'</span></span><br><span class="line">    &#125;</span><br><span class="line">    timeout = random.choice(range(<span class="number">80</span>, <span class="number">180</span>))</span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            rep = requests.get(url,headers = header,timeout = timeout)</span><br><span class="line">            rep.encoding = <span class="string">'utf-8'</span></span><br><span class="line">            <span class="comment"># req = urllib.request.Request(url, data, header)</span></span><br><span class="line">            <span class="comment"># response = urllib.request.urlopen(req, timeout=timeout)</span></span><br><span class="line">            <span class="comment"># html1 = response.read().decode('UTF-8', errors='ignore')</span></span><br><span class="line">            <span class="comment"># response.close()</span></span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="comment"># except urllib.request.HTTPError as e:</span></span><br><span class="line">        <span class="comment">#         print( '1:', e)</span></span><br><span class="line">        <span class="comment">#         time.sleep(random.choice(range(5, 10)))</span></span><br><span class="line">        <span class="comment">#</span></span><br><span class="line">        <span class="comment"># except urllib.request.URLError as e:</span></span><br><span class="line">        <span class="comment">#     print( '2:', e)</span></span><br><span class="line">        <span class="comment">#     time.sleep(random.choice(range(5, 10)))</span></span><br><span class="line">        <span class="keyword">except</span> socket.timeout <span class="keyword">as</span> e:</span><br><span class="line">            print( <span class="string">'3:'</span>, e)</span><br><span class="line">            time.sleep(random.choice(range(<span class="number">8</span>,<span class="number">15</span>)))</span><br><span class="line"></span><br><span class="line">        <span class="keyword">except</span> socket.error <span class="keyword">as</span> e:</span><br><span class="line">            print( <span class="string">'4:'</span>, e)</span><br><span class="line">            time.sleep(random.choice(range(<span class="number">20</span>, <span class="number">60</span>)))</span><br><span class="line"></span><br><span class="line">        <span class="keyword">except</span> http.client.BadStatusLine <span class="keyword">as</span> e:</span><br><span class="line">            print( <span class="string">'5:'</span>, e)</span><br><span class="line">            time.sleep(random.choice(range(<span class="number">30</span>, <span class="number">80</span>)))</span><br><span class="line"></span><br><span class="line">        <span class="keyword">except</span> http.client.IncompleteRead <span class="keyword">as</span> e:</span><br><span class="line">            print( <span class="string">'6:'</span>, e)</span><br><span class="line">            time.sleep(random.choice(range(<span class="number">5</span>, <span class="number">15</span>)))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> rep.text</span><br><span class="line">    <span class="comment"># return html_text</span></span><br></pre></td></tr></table></figure>
-<p>header是requests.get的一个参数，目的是模拟浏览器访问<br>header 可以使用chrome的开发者工具获得，具体方法如下：<br>打开chrome，按F12，选择network<br><img src="http://img.blog.csdn.net/20160312222919874" alt="这里写图片描述"><br>重新访问该网站,找到第一个网络请求，查看它的header<br><img src="http://img.blog.csdn.net/20160312223411899" alt="这里写图片描述"></p>
-<p>timeout是设定的一个超时时间，取随机数是因为防止被网站认定为网络爬虫。<br>然后通过requests.get方法获取网页的源代码、<br>rep.encoding = ‘utf-8’是将源代码的编码格式改为utf-8（不该源代码中中文部分会为乱码）<br>下面是一些异常处理<br>返回 rep.text</p>
-<p> <strong>获取html中我们所需要的字段：</strong><br> 这里我们主要要用到BeautifulSoup<br>BeautifulSoup 文档<a><a href="http://www.crummy.com/software/BeautifulSoup/bs4/doc/" target="_blank" rel="external">http://www.crummy.com/software/BeautifulSoup/bs4/doc/</a></a></p>
-<p>首先还是用开发者工具查看网页源码，并找到所需字段的相应位置<img src="http://img.blog.csdn.net/20160312225448399" alt="这里写图片描述"><br>找到我们需要字段都在 id = “7d”的“div”的ul中。日期在每个li中h1 中，天气状况在每个li的第一个p标签内，最高温度和最低温度在每个li的span和i标签中。<br>代码如下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_data</span><span class="params">(html_text)</span>:</span></span><br><span class="line">    final = []</span><br><span class="line">    bs = BeautifulSoup(html_text, <span class="string">"html.parser"</span>)  <span class="comment"># 创建BeautifulSoup对象</span></span><br><span class="line">    body = bs.body <span class="comment"># 获取body部分</span></span><br><span class="line">    data = body.find(<span class="string">'div'</span>, &#123;<span class="string">'id'</span>: <span class="string">'7d'</span>&#125;)  <span class="comment"># 找到id为7d的div</span></span><br><span class="line">    ul = data.find(<span class="string">'ul'</span>)  <span class="comment"># 获取ul部分</span></span><br><span class="line">    li = ul.find_all(<span class="string">'li'</span>)  <span class="comment"># 获取所有的li</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> day <span class="keyword">in</span> li: <span class="comment"># 对每个li标签中的内容进行遍历</span></span><br><span class="line">        temp = []</span><br><span class="line">        date = day.find(<span class="string">'h1'</span>).string  <span class="comment"># 找到日期</span></span><br><span class="line">        temp.append(date)  <span class="comment"># 添加到temp中</span></span><br><span class="line">        inf = day.find_all(<span class="string">'p'</span>)  <span class="comment"># 找到li中的所有p标签</span></span><br><span class="line">        temp.append(inf[<span class="number">0</span>].string,)  <span class="comment"># 第一个p标签中的内容（天气状况）加到temp中</span></span><br><span class="line">        <span class="keyword">if</span> inf[<span class="number">1</span>].find(<span class="string">'span'</span>) <span class="keyword">is</span> <span class="keyword">None</span>:</span><br><span class="line">            temperature_highest = <span class="keyword">None</span> <span class="comment"># 天气预报可能没有当天的最高气温（到了傍晚，就是这样），需要加个判断语句,来输出最低气温</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            temperature_highest = inf[<span class="number">1</span>].find(<span class="string">'span'</span>).string  <span class="comment"># 找到最高温</span></span><br><span class="line">            temperature_highest = temperature_highest.replace(<span class="string">'℃'</span>, <span class="string">''</span>)  <span class="comment"># 到了晚上网站会变，最高温度后面也有个℃</span></span><br><span class="line">        temperature_lowest = inf[<span class="number">1</span>].find(<span class="string">'i'</span>).string  <span class="comment"># 找到最低温</span></span><br><span class="line">        temperature_lowest = temperature_lowest.replace(<span class="string">'℃'</span>, <span class="string">''</span>)  <span class="comment"># 最低温度后面有个℃，去掉这个符号</span></span><br><span class="line">        temp.append(temperature_highest)   <span class="comment"># 将最高温添加到temp中</span></span><br><span class="line">        temp.append(temperature_lowest)   <span class="comment">#将最低温添加到temp中</span></span><br><span class="line">        final.append(temp)   <span class="comment">#将temp加到final中</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> final</span><br></pre></td></tr></table></figure>
-<p><strong>写入文件csv：</strong><br>将数据抓取出来后我们要将他们写入文件，具体代码如下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">write_data</span><span class="params">(data, name)</span>:</span></span><br><span class="line">    file_name = name</span><br><span class="line">    <span class="keyword">with</span> open(file_name, <span class="string">'a'</span>, errors=<span class="string">'ignore'</span>, newline=<span class="string">''</span>) <span class="keyword">as</span> f:</span><br><span class="line">            f_csv = csv.writer(f)</span><br><span class="line">            f_csv.writerows(data)</span><br></pre></td></tr></table></figure>
-<p><strong>主函数：</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    url =<span class="string">'http://www.weather.com.cn/weather/101190401.shtml'</span></span><br><span class="line">    html = get_content(url)</span><br><span class="line">    result = get_data(html)</span><br><span class="line">    write_data(result, <span class="string">'weather.csv'</span>)</span><br></pre></td></tr></table></figure>
-<p>然后运行一下：<br>生成的weather.csv文件如下：<br><img src="http://img.blog.csdn.net/20160313155152028" alt="这里写图片描述"></p>
-<p><strong>总结一下，从网页上抓取内容大致分3步</strong>：<br><strong>1、模拟浏览器访问，获取html源代码</strong><br><strong>2、通过正则匹配，获取指定标签中的内容</strong><br><strong>3、将获取到的内容写到文件中</strong></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spider/">spider</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/python/">python</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-python 网络爬虫入门（一）———第一个python爬虫实例" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-python 网络爬虫入门（一）———第一个python爬虫实例" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
       <a href="/2016/04/11/python 网络爬虫入门（一）———第一个python爬虫实例/" class="article-date">
@@ -327,90 +255,77 @@
       
     </div>
     
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
   </div>
   
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/09/hello-world/" class="article-date">
-  	<time datetime="2016-04-09T15:36:23.664Z" itemprop="datePublished">2016-04-09</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
     
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
+<nav id="article-nav">
+  
+    <a href="/2016/04/11/test/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
         
+          test
+        
+      </div>
+    </a>
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/09/hello-world/">Hello World</a>
-    </h1>
   
+    <a href="/2016/04/09/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hello World</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
 
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
   
 </article>
 
 
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
 
 
 
 
 
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="python 网络爬虫入门（一）———第一个python爬虫实例" data-title="" data-url="http://yoursite.com/2016/04/11/python 网络爬虫入门（一）———第一个python爬虫实例/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
-  
-  
+
+
+
 </div>
       <footer id="footer">
   <div class="outer">
@@ -434,8 +349,8 @@
 		fancybox: true,
 		mathjax: true,
 		animate: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
